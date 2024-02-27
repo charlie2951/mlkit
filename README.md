@@ -19,4 +19,4 @@ Note: Some portion of code is build on Numpy array. You need [ULAB compatible](h
 3. confusion_matrix()
 
 ## Usages
-Simply download the ***mlkit*** directory and copy it into supported board. You can use editor such as Thonny for editing, running and copying files/folders from PC to board and vice versa. The run any test code provided (E.g. test_knn01.py). The test script should be outside *mlkit* directory.
+Simply download the ***mlkit*** directory and copy it into supported board. You can use editor such as Thonny for editing, running and copying files/folders from PC to board and vice versa. The run any test code provided (E.g. test_knn01.py). The test script should be outside *mlkit* directory as shown in repo.
