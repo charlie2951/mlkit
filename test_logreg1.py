@@ -14,6 +14,7 @@ clf = LogisticRegression(gradient_descent=True)
 clf.fit(x,y)
 x_test=np.array([-2.0, -3.7, -4.1, -2.8, 0.9, 2.4, 4.2, 5.1]).reshape((-1,1))
 ypred = np_round(clf.predict(x_test))
-print("Predicted values are:")
-for i in range(len(ypred)):
-	print(ypred[i])
+print(ypred)
+print("Predicted values are:",ypred)
+
+

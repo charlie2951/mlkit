@@ -8,21 +8,23 @@ from mlkit.loss import CrossEntropy
 from mlkit.linear_model import Perceptron
 from mlkit.preprocessing import StandardScaler
 from mlkit.model_selection import train_test_split
-
+import time
+t1=time.time()
 def main():
     data = csv_read('iris.csv')
     X=data[0:100,0:4]
     y=data[0:100,4].reshape((-1,1))
     #print(ytrain)
     scaler = StandardScaler()
-    scaler.fit(X)
-    scaler.transform(X)
-    #print(X)
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.4, random_state=None)
+    scaler=scaler.fit(X)
+    X1=scaler.transform(X)
+    print(X1)
+    X_train, X_test, y_train, y_test = train_test_split(X1, y, test_size=0.2, random_state=5)
+    #Sprint(X_test)
     
 
     # Perceptron
-    clf = Perceptron(n_iterations=5000,
+    clf = Perceptron(n_iterations=1000,
         learning_rate=0.001, 
         loss=CrossEntropy,
         activation_function=Sigmoid)
@@ -35,8 +37,10 @@ def main():
     y_pred = clf.predict(X_test)
     #y_test = np.argmax(y_test, axis=1)
     y_pred = y_pred.reshape((1,-1))
-    
-    classification_report(y_test.reshape((1,-1))[0], np_round(y_pred[0]))
+    print(y_pred)
+    classification_report(y_test.reshape((1,-1))[0], np_round(y_pred[0]), num_classes=2)
+    #confusion_matrix(y_test.reshape((1,-1))[0], np_round(y_pred[0]), num_classes=2)
+    print("Time elapsed: "+str(time.time()-t1)+"sec")
 
 
 if __name__ == "__main__":
