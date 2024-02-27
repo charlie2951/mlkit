@@ -1,0 +1,3 @@
+#For Windows user replace serial port /dev/ttyUSB0 by COM port number such as COM5 etc...
+#In Windows, check COM port number from device manager, it will show something like CP2102 USB to serial interface
+python esptool.py -p /dev/ttyUSB0 -b 460800 --before default_reset --after hard_reset --chip esp32  write_flash --flash_mode dio --flash_size detect --flash_freq 40m 0x1000 bootloader/bootloader.bin 0x8000 partition_table/partition-table.bin 0x10000 firmware.bin
