@@ -1,6 +1,6 @@
 {
   "urls": [
-    ["mlkit/__init__.py", "https://github.com/charlie2951/mlkit/__init__.py"],
+    ["mlkit/__init__.py", "github.com/charlie2951/mlkit/blob/v1.0/__init__.py"],
     
   ],
   "deps": [
