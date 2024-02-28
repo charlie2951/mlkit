@@ -1,7 +1,7 @@
 #Test script for Logistic Regression in MicroPython
 from ulab import numpy as np
 # Import helper functions
-from mlkit.utils.numpy_extras import np_round
+from mlkit.utils import np_round
 from mlkit.activation import Sigmoid
 from mlkit.linear_model import LogisticRegression
 

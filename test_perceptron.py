@@ -2,7 +2,7 @@ from ulab import numpy as np
 
 # Import helper functions
 from mlkit.utils import np_round, csv_read
-from mlkit.metrics import accuracy_score, classification_report
+from mlkit.metrics import accuracy_score, classification_report, confusion_matrix
 from mlkit.activation import Sigmoid, Relu
 from mlkit.loss import CrossEntropy 
 from mlkit.linear_model import Perceptron
@@ -18,7 +18,7 @@ def main():
     scaler = StandardScaler()
     scaler=scaler.fit(X)
     X1=scaler.transform(X)
-    print(X1)
+    #print(X1)
     X_train, X_test, y_train, y_test = train_test_split(X1, y, test_size=0.2, random_state=5)
     #Sprint(X_test)
     
@@ -29,17 +29,15 @@ def main():
         loss=CrossEntropy,
         activation_function=Sigmoid)
     clf.fit(X_train, y_train)
-    #Test data
-    #xtest=data[0:100,0:4]
-    #ytest=data[0:100,4].reshape((-1,1))
-    #x_test=np.array([-2.0, -3.7, -4.1, -2.8, 0.9, 2.4, 4.2, 5.1]).reshape((-1,1))
-    #y_test = np.array([0, 0, 0, 0, 1, 1, 1, 1]).reshape((-1,1))
     y_pred = clf.predict(X_test)
-    #y_test = np.argmax(y_test, axis=1)
-    y_pred = y_pred.reshape((1,-1))
-    print(y_pred)
-    classification_report(y_test.reshape((1,-1))[0], np_round(y_pred[0]), num_classes=2)
-    #confusion_matrix(y_test.reshape((1,-1))[0], np_round(y_pred[0]), num_classes=2)
+    #Reshaping actual and predicted values for classification report and confusion matrix
+    y_test = y_test.reshape((1,-1))[0]
+    y_pred = y_pred.reshape((1,-1))[0]
+    #Calculate metrics
+    confusion_matrix(y_test, np_round(y_pred), num_classes=2)
+    classification_report(y_test, np_round(y_pred), num_classes=2)
+    print("Accuracy_score: ",accuracy_score(y_test, np_round(y_pred)))
+    
     print("Time elapsed: "+str(time.time()-t1)+"sec")
 
 

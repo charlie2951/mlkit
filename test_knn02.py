@@ -24,6 +24,7 @@ knn.fit(X_train, y_train)
 # Predict
 predictions = knn.predict(X_test)
 #print("Predictions:", predictions)
+#print(y_test)
 confusion_matrix(y_test, predictions,num_classes=3)
 classification_report(y_test, predictions,num_classes=3)
 accuracy = accuracy_score(y_test, predictions)
