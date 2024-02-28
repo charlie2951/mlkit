@@ -72,25 +72,12 @@ def np_expand_dims(a, axis=-1):
   return a.reshape(tuple(new_shape))  # Reshape the array with the new dimensions
 
 #Implementing Numpy round() funcion from scratch in micropython
-def np_round(arr, decimals=0):
-    """Rounds elements of an array to the specified number of decimal places.
+#Implementing Numpy round() funcion from scratch in micropython
+def np_round(arr, decimal_digits=0):#input numpy array 1d
+    arr = arr.tolist() 	
+    rounded_list = [round(x, decimal_digits) for x in arr]
+    return np.array(rounded_list)
 
-    Args:
-        arr: The input array.
-        decimals: Number of decimal places to round to (default: 0).
-
-    Returns:
-        A new array with the rounded elements.
-    """
-
-    if decimals == 0:
-        # Round to nearest integer using Python's built-in round()
-        return [round(x) for x in arr]
-    else:
-        # Round to specified decimal places
-        multiplier = 10 ** decimals
-        return [math.floor(x * multiplier + 0.5) / multiplier for x in arr]
- 
 #Function to implement np.atleast_1d()
 def np_atleast_1d(*arrays):
     """
