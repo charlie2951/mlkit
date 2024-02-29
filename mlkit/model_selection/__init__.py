@@ -1,1 +1,1 @@
-from .splitting import *
+from .model_selection import *
