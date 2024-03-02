@@ -1,5 +1,5 @@
 <meta name="google-site-verification" content="Q17v58M2kfbNl_NGiqbFudpkB8_i5R3Sq2AZsRRzDrI" /> <br>
-# MLKIT: A Machine Learning Framework for MicroPython
+# MLKIT: [A Machine Learning Framework for MicroPython](https://github.com/charlie2951/mlkit/tree/v1.0)
 ## A Machine Learning framework in MicroPython
 ***MLKIT*** is a machine learning framework designed for tiny bare-metal controllers who supports micropython. The machine learning code is primarily developed from scratch. The APIs are developed in such a way so that compatibility with popular machine learning tools such as Scikit-Learn is maintained. <br>
 Note: Some portion of code is build on Numpy array. You need [ULAB compatible](https://github.com/v923z/micropython-ulab) firmware for Numpy support and to run the code. Some pre-compiled firmware of different port can be found in **firmware** directory.<br>
